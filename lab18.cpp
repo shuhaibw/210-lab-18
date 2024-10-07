@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <iomanip>
 
 using namespace std;
 
@@ -126,12 +127,35 @@ int main()
 
 void displayList(Node* head) 
 {
+    Node* temp = head;
+    int count = 1;
+    float total = 0;
+    int reviewAmount = 0;
 
+    // loop while current is not nullptr
+    while (current)
+    {
+      
+    }
 }
 
 void deleteList(Node*& head) 
 {
+    // assign current to point to head
+    Node* current = head;
 
+    while (current)
+    {
+        // make head point to second node
+        head = current->next;
+        // delete first node current is pointing to
+        delete current;
+        // assign current to point to second one which is now first
+        current = head;
+    }
+
+    // assign head point to nullptr when all nodes delete
+    head = nullptr;
 }
 
 void addHead(Node*& head, float rating, const string& comments) 
