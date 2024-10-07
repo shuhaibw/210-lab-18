@@ -6,12 +6,19 @@
 
 using namespace std;
 
+// struct for moview review nodes
 struct Node
 {
     float rating;
     string comments;
     Node* next;
 }
+
+// function prototypes
+void displayList(Node* head);
+void deleteList(Node*& head);
+void addHead(Node*& head, float rating, const string& comments);
+void addTail(Node*& head, float rating, const string& comments);
 
 int main()
 {
@@ -108,10 +115,31 @@ int main()
     } while (anotherReview == 'y') // loop until the user says no more reviews
 
     cout << "Outputting all reviews:" << endl;
-    // pass in null head to the display function
-    displayList(head)
+    // pass in head to the display function
+    displayList(head);
 
-    //
+    // delete the list
+    deleteList(head);
 
     return 0;
+}
+
+void displayList(Node* head) 
+{
+
+}
+
+void deleteList(Node*& head) 
+{
+
+}
+
+void addHead(Node*& head, float rating, const string& comments) 
+{
+
+}
+
+void addTail(Node*& head, float rating, const string& comments) 
+{
+
 }
