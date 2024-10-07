@@ -78,7 +78,7 @@ int main()
             cin >> rating;
         }
 
-        // clear input before collecting comments
+        // clear input before collecting the comments
         cin.ignore();
         string comments;
         cout << "Enter review comments: "
