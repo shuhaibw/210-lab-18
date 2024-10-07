@@ -76,6 +76,24 @@ int main()
         cout << "Enter review comments: "
         getline(cin, comments);
 
+        // add the rating and comments to the list
+        if (mode == 1)
+        {
+            addHead(head, rating, comments);
+        }
+        else
+        {
+            addTail(tail, rating, comments);
+        }
+
+        // get and validate user input for another review
+        do
+        {
+            cout << "Enter another review? Y/N: ";
+            cin >> anotherReview;
+            
+        } while (anotherReview != 'y' || anotherReview != 'n')
+
     } while (anotherReview == 'y') // loop until the user says no more reviews
 
     return 0;
