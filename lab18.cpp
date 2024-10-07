@@ -74,7 +74,9 @@ int main()
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a number between 0 and 5.";
+            cout << "Invalid input. Please enter a number between 0 and 5." << endl;
+            // ask again
+            cout << "Enter review rating 0-5: ";
             cin >> rating;
         }
 
@@ -108,7 +110,7 @@ int main()
                 cout << "Invalid input. Please enter Y or N." << endl;
             }
 
-        } while (anotherReview != 'y' || anotherReview != 'n');
+        } while (anotherReview != 'y' && anotherReview != 'n');
 
         // clear input
         cin.ignore();
