@@ -28,15 +28,15 @@ int main()
     //make var for the mode choice
     int mode;
 
-    cout << "Which linked list method should we use?
-    [1] New nodes are added at the head of the linked list
-    [2] New nodes are added at the tail of the linked list" << endl;
+    cout << "Which linked list method should we use?\n"
+    << "    [1] New nodes are added at the head of the linked list\n"
+    << "    [2] New nodes are added at the tail of the linked list" << endl;
 
     // loop until valid input is received
     while (true)
     {
         cout << "Choice: ";
-        cin >> mode
+        cin >> mode;
 
         // check if user entered an int
         if (cin.fail())
@@ -74,14 +74,14 @@ int main()
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a number between 0 and 5."
+            cout << "Invalid input. Please enter a number between 0 and 5.";
             cin >> rating;
         }
 
         // clear input before collecting the comments
         cin.ignore();
         string comments;
-        cout << "Enter review comments: "
+        cout << "Enter review comments: ";
         getline(cin, comments);
 
         // add the rating and comments to the list
@@ -91,7 +91,7 @@ int main()
         }
         else
         {
-            addTail(tail, rating, comments);
+            addTail(head, rating, comments);
         }
 
         // get and validate user input for another review
@@ -103,17 +103,17 @@ int main()
             anotherReview = tolower(anotherReview);
 
             // validate user input
-            if (anotherReview != 'y' || anotherReview != 'n')
+            if (anotherReview != 'y' && anotherReview != 'n')
             {
                 cout << "Invalid input. Please enter Y or N." << endl;
             }
 
-        } while (anotherReview != 'y' || anotherReview != 'n')
+        } while (anotherReview != 'y' || anotherReview != 'n');
 
         // clear input
         cin.ignore();
 
-    } while (anotherReview == 'y') // loop until the user says no more reviews
+    } while (anotherReview == 'y'); // loop until the user says no more reviews
 
     cout << "Outputting all reviews:" << endl;
     // pass in head to the display function
