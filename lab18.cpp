@@ -130,12 +130,25 @@ void displayList(Node* head)
     Node* temp = head;
     int count = 1;
     float total = 0;
-    int reviewAmount = 0;
+    int reviewCount = 0;
 
-    // loop while current is not nullptr
-    while (current)
+    // loop to traverse and output reviews
+    while (temp)
     {
-      
+      cout << "    > Review #" << count << ": " << temp->rating << ": " << temp->comments << endl;
+      // add the rating to total
+      total += temp->rating;
+      // increment review count
+      reviewCount++;
+      // go to next review
+      temp = temp->next;
+      count++;
+    }
+
+    // calculate and display average rating
+    if (reviewCount > 0)
+    {
+        cout << "    > Average: " << (total / reviewCount) << endl;
     }
 }
 
