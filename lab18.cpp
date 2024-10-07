@@ -198,6 +198,15 @@ void addHead(Node*& head, float rating, const string& comments)
     head = newNode;
 }
 
+/*
+    addTail() appends a new node at the end of the linked list.
+    Arguments: 
+    Node*& head: Reference to the list's head pointer.
+    float rating: Review rating to be added.
+    const string& comments: Review comments to be added.
+    Returns: 
+    void
+*/
 void addTail(Node*& head, float rating, const string& comments) 
 {
     Node* newNode = new Node();
@@ -214,5 +223,15 @@ void addTail(Node*& head, float rating, const string& comments)
     } 
     else 
     {
+        // temp pointer to traverse the list
+        Node* temp = head;
+        while (temp->next)
+        {
+            // go to the end
+            temp = temp->next;
+        }
+
+        // link new node at the end
+        tempt->next = newNode
     }
 }
