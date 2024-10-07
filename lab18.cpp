@@ -127,6 +127,13 @@ int main()
 
 void displayList(Node* head) 
 {
+    // check if list is empty
+    if (!head) 
+    {
+        cout << "The list is empty." << endl;
+        return;
+    }
+
     Node* temp = head;
     int count = 1;
     float total = 0;
@@ -154,6 +161,13 @@ void displayList(Node* head)
 
 void deleteList(Node*& head) 
 {
+    // check if list is empty
+    if (!head) 
+    {
+        cout << "There is nothing to delete." << endl;
+        return;
+    }
+
     // assign current to point to head
     Node* current = head;
 
@@ -173,10 +187,32 @@ void deleteList(Node*& head)
 
 void addHead(Node*& head, float rating, const string& comments) 
 {
-
+    // create a new node
+    Node* newNode = new Node();
+    // assign rating and comments to the node
+    newNode->rating = rating;
+    newNode->comments = comments;
+    // make new node point to current head
+    newNode->next = head;
+    // assign head to point to new node
+    head = newNode;
 }
 
 void addTail(Node*& head, float rating, const string& comments) 
 {
+    Node* newNode = new Node();
+    // assign values to node
+    newNode->rating = rating;
+    newNode->comments = comments;
+    // make the node point to nullptr
+    newNode->next = nullptr;
 
+    if (!head) 
+    {
+        // if list is empty, assign new node as head
+        head = newNode; 
+    } 
+    else 
+    {
+    }
 }
