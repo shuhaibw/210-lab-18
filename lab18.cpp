@@ -91,10 +91,25 @@ int main()
         {
             cout << "Enter another review? Y/N: ";
             cin >> anotherReview;
-            
+            // make input lowercase
+            anotherReview = tolower(anotherReview);
+
+            // validate user input
+            if (anotherReview != 'y' || anotherReview != 'n')
+            {
+                cout << "Invalid input. Please enter Y or N." << endl;
+            }
+
         } while (anotherReview != 'y' || anotherReview != 'n')
 
+        // clear input
+        cin.ignore();
+
     } while (anotherReview == 'y') // loop until the user says no more reviews
+
+    cout << "Outputting all reviews:" << endl;
+    // pass in null head to the display function
+    displayList(head)
 
     return 0;
 }
