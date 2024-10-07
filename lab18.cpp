@@ -24,13 +24,14 @@ int main()
     [1] New nodes are added at the head of the linked list
     [2] New nodes are added at the tail of the linked list" << endl;
 
-    while(true)
+    // loop until valid input is received
+    while (true)
     {
         cout << "Choice: ";
         cin >> mode
 
         // check if user entered an int
-        if(cin.fail())
+        if (cin.fail())
         {
             cout << "Invalid input. Please enter 1 or 2." << endl;
             cin.clear();
@@ -40,11 +41,7 @@ int main()
             continue;
         }
 
-        if(mode == 1)
-        {
-            break;
-        }
-        else if (mode == 2)
+        if (mode == 1 || mode == 2)
         {
             break;
         }
@@ -53,6 +50,33 @@ int main()
             cout << "Invalid input. Please enter 1 or 2." << endl;
         }
     }
+
+    // var for checking if user wants to do another review 
+    char anotherReview; 
+
+    do
+    {
+        float rating;
+        // collect rating from user
+        cout << "Enter review rating 0-5: "
+        cin >> rating;
+
+        // loop to validate rating
+        while (cin.fail() || rating < 0 || rating > 5)
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number between 0 and 5."
+            cin >> rating;
+        }
+
+        // clear input before collecting comments
+        cin.ignore();
+        string comments;
+        cout << "Enter review comments: "
+        getline(cin, comments);
+
+    } while (anotherReview == 'y') // loop until the user says no more reviews
 
     return 0;
 }
