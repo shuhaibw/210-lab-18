@@ -13,7 +13,7 @@ struct Node
     float rating;
     string comments;
     Node* next;
-}
+};
 
 // function prototypes
 void displayList(Node* head);
@@ -66,7 +66,7 @@ int main()
     {
         float rating;
         // collect rating from user
-        cout << "Enter review rating 0-5: "
+        cout << "Enter review rating 0-5: ";
         cin >> rating;
 
         // loop to validate rating
@@ -125,6 +125,13 @@ int main()
     return 0;
 }
 
+/*
+    displayList() outputs all reviews in the linked list.
+    Arguments: 
+    Node* head: Pointer to the head of the linked list.
+    Returns: 
+    void
+*/
 void displayList(Node* head) 
 {
     // check if list is empty
@@ -142,7 +149,9 @@ void displayList(Node* head)
     // loop to traverse and output reviews
     while (temp)
     {
-      cout << "    > Review #" << count << ": " << temp->rating << ": " << temp->comments << endl;
+      cout << "    > Review #" << count << ": " << fixed 
+      << setprecision(2) << temp->rating << ": " 
+      << temp->comments << endl;
       // add the rating to total
       total += temp->rating;
       // increment review count
@@ -155,10 +164,18 @@ void displayList(Node* head)
     // calculate and display average rating
     if (reviewCount > 0)
     {
-        cout << "    > Average: " << (total / reviewCount) << endl;
+        cout << "    > Average: " << fixed << setprecision(5) 
+        << (total / reviewCount) << endl;
     }
 }
 
+/*
+    deleteList() frees all nodes in the linked list.
+    Arguments: 
+    Node*& head: Reference to the head pointer of the linked list.
+    Returns: 
+    void
+*/
 void deleteList(Node*& head) 
 {
     // check if list is empty
@@ -185,6 +202,15 @@ void deleteList(Node*& head)
     head = nullptr;
 }
 
+/*
+    addHead() inserts a new node at the beginning of the linked list.
+    Arguments: 
+    Node*& head: Reference to the list's head pointer.
+    float rating: Review rating to be added.
+    const string& comments: Review comments to be added.
+    Returns: 
+    void
+*/
 void addHead(Node*& head, float rating, const string& comments) 
 {
     // create a new node
@@ -232,6 +258,6 @@ void addTail(Node*& head, float rating, const string& comments)
         }
 
         // link new node at the end
-        tempt->next = newNode
+        temp->next = newNode;
     }
 }
